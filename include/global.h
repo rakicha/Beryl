@@ -1103,6 +1103,8 @@ struct SaveBlock1
 #endif //FREE_MYSTERY_GIFT
     /*0x3???*/ u8 dexSeen[NUM_DEX_FLAG_BYTES];
     /*0x3???*/ u8 dexCaught[NUM_DEX_FLAG_BYTES];
+    /*0x3598*/ u8 unused_3598[0x17E];
+    /*0x3716*/ u16 registeredLongItem; // registered for long press of SELECT button
 #if FREE_TRAINER_HILL == FALSE
     /*0x3???*/ u32 trainerHillTimes[NUM_TRAINER_HILL_MODES];
 #endif //FREE_TRAINER_HILL

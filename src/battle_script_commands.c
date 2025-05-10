@@ -66,6 +66,8 @@
 #include "constants/pokemon.h"
 #include "config/battle.h"
 #include "data/battle_move_effects.h"
+#include "constants/flags.h"
+#include "debug.h"
 
 // table to avoid ugly powing on gba (courtesy of doesnt)
 // this returns (i^2.5)/4
@@ -2513,6 +2515,14 @@ static void Cmd_healthbarupdate(void)
 {
     CMD_ARGS(u8 battler);
     u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    #if TX_DEBUG_SYSTEM_ENABLE == TRUE
+    u8 side = GetBattlerSide(gBattlerTarget);
+    if (FlagGet(FLAG_SYS_NO_BATTLE_DMG) && side == B_SIDE_PLAYER)
+    {
+        gMoveResultFlags |= MOVE_RESULT_NO_EFFECT;
+    }
+    #endif
 
     if (gBattleControllerExecFlags)
         return;
