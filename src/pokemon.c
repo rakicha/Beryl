@@ -6377,7 +6377,7 @@ struct MonSpritesGfxManager *CreateMonSpritesGfxManager(void)
     gfx->numSprites = MAX_BATTLERS_COUNT;
     gfx->numFrames = GFX_MANAGER_NUM_FRAMES;
     gfx->spriteBuffer = AllocZeroed(GFX_MANAGER_SPR_SIZE * gfx->numSprites);
-    gfx->spritePointers = AllocZeroed(gfx->numSprites * 4);
+    gfx->spritePointers = AllocZeroed(gfx->numSprites * 2);
     if (gfx->spriteBuffer == NULL || gfx->spritePointers == NULL)
     {
         failureFlags |= ALLOC_FAIL_BUFFER;
